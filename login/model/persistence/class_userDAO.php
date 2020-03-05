@@ -12,64 +12,74 @@ class userDAO extends db {
 		return $resultat;
 	}
 
-	/*public function modificar($marca) {
+	public function modificar($user) {
 
- 	  $query="update marca set nom = '".$marca->getNom()."' where id = '".$marca->getId()."';";
+ 	  $query="update user set password = '".$user->getPassword()."' where email = '".$user->getEmail()."';";
 
     $resultat = $this->consulta($query);
     $this->close();
 
 		return $resultat;
 	}
-
-	public function eliminar($id) {
-
-    $query="delete from marca where id = '".$id."';";
-
-    $resultat = $this->consulta($query);
-    $this->close();
-
-		return $resultat;
-	}*/
 
 	public function validarUserPassword($email,$password) {
 
-		$query="SELECT * FROM user order by id;";
-		$consulta = $this->consulta($query);
-		$this->close();
+		$query="select password from user where email = '".$email."';";
+        $consulta = $this->consulta($query);
+        $this->close();
 
-		/* construim un array associatiu $usuaris
-		amb el format userName => password */
-		foreach ($consulta as $row) {
-		  $usuaris[$row['email']] = $row['password'];
-	  }
+        $row = $consulta->fetch_object();
 
-		// Si el valor de la casella indexada amb el nom del usuari (la password real)
-		// es igual que la password introduïda retorna true, si no false
-		if (hash_equals($usuaris[$user], crypt($pwd, $usuaris[$user]))) {
-				$ok = true;
-		} else {
+		if (isset($row)) {
+            $hashed_password=$row->password;
+			/*Compara que los dos hash sean iguales*/
+			/*var_dump($password);
+			var_dump($hashed_password);
+			var_dump(crypt($password, $hashed_password));
+			die();*/
+            if (hash_equals($hashed_password, crypt($password, $hashed_password))) {
+                $ok = true;
+			}else{
 				$ok = false;
+			}
 		}
-		return $ok;
+        return $ok;
 
 	}
 
-	/*public function veureMarques() {
-		$query="SELECT * FROM marca;";
+	public function veureUser($email) {
+		$query="select * FROM user where email = '".$email."';";
 
-    $consulta = $this->consulta($query);
+    	$consulta = $this->consulta($query);
 		$this->close();
 
-		$arrayMarques = array();
-		foreach ($consulta as $row) {
-		  $marca = new marca($row["nom"]);
-	    $marca->setId($row["id"]);
-	    array_push($arrayMarques, $marca);
-    }
+		$row = $consulta->fetch_object();
+		
+		if (isset($row)) {
+			$ok = true;
+		}else{
+			$ok = false;
+		}
+        return $ok;
+  }
+  public function retornaUser($email) {
 
-		return $arrayMarques;
-  }*/
+	$query="select * from user where email = '".$email."';";
+
+	$consulta = $this->consulta($query);
+	$this->close();
+
+	$row = $consulta->fetch_object();
+
+	if (isset($row)) {
+	  $user = new user($row->email,$row->password);
+	$user->setId($row->id);
+
+	  return $user;
+	}
+
+}
+  
 
 }
  ?>

@@ -21,17 +21,21 @@ $msg = null;
 
 	        // Assignem els valors a noves variables
 	        $usuari = $_REQUEST['email'];
-	        $password = $_REQUEST['password'];
+            $password = $_REQUEST['password'];
+            
+            $user = $userDAO->retornaUser($_REQUEST['email']);
 
-	        // encriptem la contrasenya que hem rebut del formulari
-	        $hash = crypt($password, null);
-
-	        $user = new user($usuari, $hash);
-
-	        if($userDAO->inserir($user)){
-				$msg = "Registre finalitzat correctament";
-			}
-	        
+            if(is_null($user)){
+                $msg = "No existeix l'usuari";
+            }else{
+                $hash = crypt($_REQUEST['password'], null);
+                $user = new user($_REQUEST['email'], $hash);
+                if($userDAO->modificar($user)){
+                    $msg = "Contrassenya modificada correctament";
+                }else{
+                    $msg = "No s'ha pogut cambiar la contrassenya";
+                }
+            }
 	    } else {
 	        $msg = "ERROR: les contrasenyes han de coincidir";
 	    }
@@ -46,3 +50,4 @@ if ($msg != null) {
 
 include '../view/footer.php';
 ?>
+

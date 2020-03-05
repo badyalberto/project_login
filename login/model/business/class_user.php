@@ -2,7 +2,8 @@
 
 class user{
     public $id;
-    public $email;
+	public $email;
+	public $password;
 
     public function __construct($nom,$password){
 		$this->setId(null);

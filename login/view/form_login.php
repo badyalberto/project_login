@@ -10,14 +10,18 @@ include 'header.php';
         <table cellpadding='2' cellspacing='2'>
    				<tr>
    					<td>Email:</td>
-   					<td><input type="email" name="email" placeholder="nom d'usuari" /></td>
+   					<td><input type="email" name="email" placeholder="Introdueix l'email" /></td>
                 </tr>
                 <tr>
    					<td>Password:</td>
    					<td><input type="password" name="password" placeholder="contrassenya" /></td>
                 </tr>
                 <tr>
-                    <td><input type="submit" value="Enviar" /></td>
+   					<td><a href="form_recorda_contrassenya.php">No recordes la contrassenya ?</a></td>
+                </tr>
+                <tr>
+                    <td><button class="btn waves-effect waves-light" type="submit" name="action">Enviar
+  </button></td>
                 </tr>   
         </table>
 </form>

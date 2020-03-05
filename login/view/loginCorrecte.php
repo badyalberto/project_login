@@ -6,5 +6,5 @@
         <h1>Login Correcte</h1>
 
 <?php
-  include 'footer.html';
+  include 'footer.php';
 ?>

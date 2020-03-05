@@ -18,7 +18,8 @@
              <td><input type='password' name='password_r' /></td>
            </tr>
            <tr>
-             <td></td><td><input type='submit' value="Registrar" /></td>
+             <td><button class="btn waves-effect waves-light" type="submit" name="action">Enviar
+  </button></td>
            </tr>
    			  </table>
         </form>
