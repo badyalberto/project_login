@@ -16,8 +16,9 @@ $msg = null;
 	  if (!empty($_REQUEST['email'])) {
 
         if($userDAO->veureUser($_REQUEST['email'])) {
+			setcookie("mail", $_REQUEST['email'],time()+3600);
 	        $url ="http://localhost:120/login/view/form_restablir_contrassenya.php";
-            $success = mail($_REQUEST['email'],"Recordar la contrassenya","Per restablir la contrassenya clicar en el link següent:\n".$url);
+            $success = mail($_REQUEST['email'],"Recordar la contrassenya","Per restablir la contrassenya clicar en el link següent:\n"."<a href='$url'>Restablir la contrassenya</a>");
             if($success){
                 $msg = "Correu enviat correctament";
             }else{
