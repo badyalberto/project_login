@@ -1,4 +1,4 @@
-
+<div class="wrapper">
 <footer class="page-footer" >
           <div class="container">
             <div class="row">
@@ -23,5 +23,6 @@
             </div>
           </div>
         </footer>
+</div>
 
         

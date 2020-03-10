@@ -21,7 +21,7 @@ class userDAO extends db {
 
 		return $resultat;
 	}
-
+	/*COMPRUEBA QUE EL PASSWORD CORRESPONDA CON EL EMAIL */
 	public function validarUserPassword($email,$password) {
 
 		$query="select password from user where email = '".$email."';";
@@ -44,9 +44,9 @@ class userDAO extends db {
 			}
 		}
         return $ok;
-
 	}
 
+	/*RETORNA UNA BOOLEANA SI ENCUENTRA O NO UN USUARIO*/
 	public function veureUser($email) {
 		$query="select * FROM user where email = '".$email."';";
 
@@ -62,6 +62,8 @@ class userDAO extends db {
 		}
         return $ok;
   }
+
+  /*DEVUELVE EL USUARIO*/
   public function retornaUser($email) {
 
 	$query="select * from user where email = '".$email."';";
