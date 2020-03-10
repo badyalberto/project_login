@@ -3,7 +3,7 @@
 // Incloem el header
 include 'header.php';
 ?>
-<div style="caja-forms">
+<div class="caja-forms">
 <h3>Recordar contraseña</h3>
 
 <form action="../controller/recorda_ctl.php" method="post">
