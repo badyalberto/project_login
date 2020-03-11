@@ -20,23 +20,19 @@ include 'header.php';
    					<td style="    border: hidden;
     width: 60%;"><input type="password" name="password" id="password" placeholder="contrassenya" /></td>
                 </tr>
-                <tr>
-                    <td style="    border: hidden;
-    width: 30%;">
+                <tr style="border:hidden;">
+                    <td>
                         <label>
                             <input type="checkbox" class="filled-in" id="check" onclick="ocultaPassword()" />
                             <span>Mostrar contrassenya</span>
                         </label>
                     </td>
                 </tr>
-                <tr>
-   					<td style="    border: hidden;
-    width: 30%;"><a href="form_recorda_contrassenya.php">No recordes la contrassenya ?</a></td>
+                <tr style="border:hidden;">
+   					<td><a href="form_recorda_contrassenya.php">No recordes la contrassenya ?</a></td>
                 </tr>
-                <tr>
-                    <td style="    border: hidden;
-    width: 30%;"><button class="btn waves-effect waves-light" type="submit" name="action">Enviar
-  </button></td>
+                <tr style="border:hidden;">
+                    <td><button class="btn waves-effect waves-light" type="submit" name="action">Enviar</button></td>
                 </tr>   
         </table>
 </form>

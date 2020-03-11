@@ -14,9 +14,8 @@ include 'header.php';
    					<td style="    border: hidden;
     width: 60%;"><input type="email" name="email" placeholder="Introdueix l' email" /></td>
                 </tr>
-                <tr>
-                    <td style="    border: hidden;"><button class="btn waves-effect waves-light" type="submit" name="action">Enviar
-  </button></td>
+                <tr style="border: hidden;">
+                    <td><button class="btn waves-effect waves-light" type="submit" name="action">Enviar</button></td>
                 </tr>   
         </table>
 </form>
